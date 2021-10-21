@@ -93,17 +93,41 @@ unsigned char mazeLevelFour[31][31] = {
 
 int posX = 1;
 int posY = 1;
+int mapSequence[10];
 
-int main()
+void sequenceSelector()
 {
     int number;
     srand(time(0));
+    int index = 0;
 
-    for (int i = 1; i < 10; i++)
+    while(index!=10)
     {
+        bool checkInside = false;
         number = (rand() % 10);
-        break;
+        if (index != 0)
+        {
+            for (int j = 0; j < index; j++)
+            {
+                if (mapSequence[j] == number)
+                {
+                    checkInside = true;
+                    break;
+                }
+            }
+        }
+        if (checkInside == false)
+        {
+            mapSequence[index] = number;
+            index++;
+        }
     }
+}
 
-    cout << number << endl;
+int main()
+{
+    for (int i = 0; i < 10; i++)
+    {
+        cout << mapSequence[i] << " ";
+    }
 }

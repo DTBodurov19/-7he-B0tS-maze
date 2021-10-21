@@ -96,14 +96,31 @@ int posY = 1;
 
 int main()
 {
-    int number;
-    srand(time(0));
+    int amount = 10;
+    int max = 10;
 
-    for (int i = 1; i < 10; i++)
-    {
-        number = (rand() % 10);
-        break;
+    int* value = new int[amount];
+
+    srand(time(0));
+    for (int i = 0; i < amount; i++) {
+        bool check;
+        int n;
+        do {
+
+            n = (rand() % max) + 1;
+
+            check = true;
+            for (int j = 0; j < i; j++)
+                if (n == value[j]) {
+                    check = false;
+                    break;
+                }
+        } while (!check);
+        value[i] = n;
     }
 
-    cout << number << endl;
+    for (int i = 0; i < 10; i++) {
+        cout << value[i] << " ";
+    }
+
 }

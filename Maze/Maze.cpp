@@ -102,16 +102,20 @@ int main()
     int* value = new int[amount];
 
     srand(time(0));
-    for (int i = 0; i < amount; i++) {
+    for (int i = 0; i < amount; i++)
+    {
         bool check;
         int n;
-        do {
+        do
+        {
 
             n = (rand() % max) + 1;
 
+
             check = true;
             for (int j = 0; j < i; j++)
-                if (n == value[j]) {
+                if (n == value[j])
+                {
                     check = false;
                     break;
                 }
@@ -119,8 +123,11 @@ int main()
         value[i] = n;
     }
 
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 10; i++)
+    {
         cout << value[i] << " ";
     }
 
+    delete[] value;
 }
+

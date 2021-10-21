@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 using namespace std;
 
 unsigned char mazeLavelOne[10][20] = {
@@ -91,12 +92,14 @@ int posY = 1;
 
 int main()
 {
-    for (int i = 0; i < 31; i++)
+    int number;
+    srand(time(0));
+
+    for (int i = 0; i < 10; i++)
     {
-        cout << endl;
-        for (int j = 0; j < 31; j++)
-        {
-            cout << mazeLevelFour[i][j];
-        }
+        number = (rand() % 10) + 1;
+        break;
     }
+
+    cout << number << endl;
 }

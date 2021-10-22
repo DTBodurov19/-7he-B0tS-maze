@@ -93,41 +93,41 @@ unsigned char mazeLevelFour[31][31] = {
 
 int posX = 1;
 int posY = 1;
+int* mapOrder = new int[10];
 
-int main()
+void randomMapChooser()
 {
-    int amount = 10;
-    int max = 10;
-
-    int* value = new int[amount];
-
     srand(time(0));
-    for (int i = 0; i < amount; i++)
+    for (int i = 0; i < 10; i++)
     {
         bool check;
         int n;
         do
         {
 
-            n = (rand() % max) + 1;
+            n = (rand() % 10) + 1;
 
 
             check = true;
             for (int j = 0; j < i; j++)
-                if (n == value[j])
+                if (n == mapOrder[j])
                 {
                     check = false;
                     break;
                 }
         } while (!check);
-        value[i] = n;
+        mapOrder[i] = n;
     }
+}
+
+int main()
+{
+    randomMapChooser();
 
     for (int i = 0; i < 10; i++)
     {
-        cout << value[i] << " ";
+        cout << mapOrder[i] << " ";
     }
 
-    delete[] value;
+    delete[] mapOrder;
 }
-

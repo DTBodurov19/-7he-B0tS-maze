@@ -1,6 +1,7 @@
 #include <iostream>
 #include <ctime>
 #include<conio.h>
+#include<Windows.h>
 using namespace std;
 
 unsigned char mazeLavelOne[10][20] = {
@@ -229,7 +230,7 @@ unsigned char mazeLevelTen[19][19] = {
 
 int* mapOrder = new int[10];
 
-void movement(unsigned char** a)
+void movement(unsigned char** a, int n, int m)
 {
     int posX = 1;
     int posY = 1;
@@ -239,9 +240,9 @@ void movement(unsigned char** a)
     {
         system("cls");
 
-        for (int i = 0; i < 31; i++)
+        for (int i = 0; i < n; i++)
         {
-            for (int j = 0; j < 31; j++)
+            for (int j = 0; j < m; j++)
             {
                 cout << a[i][j];
             }
@@ -262,6 +263,10 @@ void movement(unsigned char** a)
                 posX--;
                 break;
             }
+            else if (a[posX - 1][posY] == 'F')
+            {
+                goto level_complete;
+            }
             else
             {
                 break;
@@ -275,6 +280,10 @@ void movement(unsigned char** a)
                 a[posX + 1][posY] = '*';
                 posX++;
                 break;
+            }
+            else if (a[posX + 1][posY] == 'F')
+            {
+                goto level_complete;
             }
             else
             {
@@ -290,6 +299,10 @@ void movement(unsigned char** a)
                 posY--;
                 break;
             }
+            else if (a[posX][posY - 1] == 'F')
+            {
+                goto level_complete;
+            }
             else
             {
                 break;
@@ -304,12 +317,20 @@ void movement(unsigned char** a)
                 posY++;
                 break;
             }
+            else if (a[posX][posY + 1] == 'F')
+            {
+                goto level_complete;
+            }
             else
             {
                 break;
             }
         }
     }
+level_complete:
+    system("cls");
+    cout << "Level completed!";
+    Sleep(2000);
 }
 
 void randomMapChooser()

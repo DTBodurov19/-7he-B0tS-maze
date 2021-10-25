@@ -1,5 +1,6 @@
 #include <iostream>
 #include <ctime>
+#include<conio.h>
 using namespace std;
 
 unsigned char mazeLavelOne[10][20] = {
@@ -226,9 +227,90 @@ unsigned char mazeLevelTen[19][19] = {
 
 };
 
-int posX = 1;
-int posY = 1;
 int* mapOrder = new int[10];
+
+void movement(unsigned char** a)
+{
+    int posX = 1;
+    int posY = 1;
+    a[posX][posY] = '*';
+    char c = '0';
+    while (1)
+    {
+        system("cls");
+
+        for (int i = 0; i < 31; i++)
+        {
+            for (int j = 0; j < 31; j++)
+            {
+                cout << a[i][j];
+            }
+            cout << endl;
+        }
+
+        c = _getch();
+
+
+        switch (c) {
+        case 72:
+        case 'W':
+        case 'w':
+            if (a[posX - 1][posY] != '#' && a[posX - 1][posY] != 'F')
+            {
+                a[posX][posY] = ' ';
+                a[posX - 1][posY] = '*';
+                posX--;
+                break;
+            }
+            else
+            {
+                break;
+            }
+        case 80:
+        case 's':
+        case 'S':
+            if (a[posX + 1][posY] != '#' && a[posX + 1][posY] != 'F')
+            {
+                a[posX][posY] = ' ';
+                a[posX + 1][posY] = '*';
+                posX++;
+                break;
+            }
+            else
+            {
+                break;
+            }
+        case 75:
+        case 'A':
+        case 'a':
+            if (a[posX][posY - 1] != '#' && a[posX][posY - 1] != 'F')
+            {
+                a[posX][posY] = ' ';
+                a[posX][posY - 1] = '*';
+                posY--;
+                break;
+            }
+            else
+            {
+                break;
+            }
+        case 77:
+        case 'D':
+        case 'd':
+            if (a[posX][posY + 1] != '#' && a[posX][posY + 1] != 'F')
+            {
+                a[posX][posY] = ' ';
+                a[posX][posY + 1] = '*';
+                posY++;
+                break;
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+}
 
 void randomMapChooser()
 {

@@ -228,6 +228,26 @@ unsigned char mazeLevelTen[19][19] = {
 
 };
 
+unsigned char** dynamicMapCreator(unsigned char** a, int n, int m)
+{
+    a = new unsigned char* [n];
+    for (int i = 0; i < n; i++)
+    {
+        a[i] = new unsigned char[m];
+    }
+    return a;
+}
+
+unsigned char** map1 = dynamicMapCreator(map1, 10, 20);
+unsigned char** map2 = dynamicMapCreator(map2, 12, 12);
+unsigned char** map3 = dynamicMapCreator(map3, 20, 30);
+unsigned char** map4 = dynamicMapCreator(map4, 31, 31);
+unsigned char** map5 = dynamicMapCreator(map5, 25, 22);
+unsigned char** map6 = dynamicMapCreator(map6, 9, 15);
+unsigned char** map7 = dynamicMapCreator(map7, 21, 21);
+unsigned char** map8 = dynamicMapCreator(map8, 25, 25);
+unsigned char** map9 = dynamicMapCreator(map9, 15, 15);
+unsigned char** map10 = dynamicMapCreator(map10, 19, 19);
 int* mapOrder = new int[10];
 
 void movement(unsigned char** map, int n, int m)

@@ -380,12 +380,83 @@ void randomMapChooser()
 
 int main()
 {
+    for (int i = 0; i < 10; i++)
+    {
+        for (int j = 0; j < 20; j++)
+        {
+            map1[i][j] = mazeLavelOne[i][j];
+        }
+    }
+
+    for (int i = 0; i < 12; i++)
+    {
+        for (int j = 0; j < 12; j++)
+        {
+            map2[i][j] = mazeLevelTwo[i][j];
+        }
+    }
+
+    for (int i = 0; i < 20; i++)
+    {
+        for (int j = 0; j < 30; j++)
+        {
+            map3[i][j] = mazeLevelThree[i][j];
+        }
+    }
+
+    for (int i = 0; i < 31; i++)
+    {
+        for (int j = 0; j < 31; j++)
+        {
+            map4[i][j] = mazeLevelFour[i][j];
+        }
+    }
+
+    for (int i = 0; i < 25; i++)
+    {
+        for (int j = 0; j < 22; j++)
+        {
+            map5[i][j] = mazeLavelFive[i][j];
+        }
+    }
+
+    for (int i = 0; i < 9; i++)
+    {
+        for (int j = 0; j < 15; j++)
+        {
+            map6[i][j] = mazeLevelSix[i][j];
+        }
+    }
+
     for (int i = 0; i < 21; i++)
     {
         for (int j = 0; j < 21; j++)
         {
-            cout << mazeLevelSeven[i][j];
+            map7[i][j] = mazeLevelSeven[i][j];
         }
-        cout << endl;
+    }
+
+    for (int i = 0; i < 25; i++)
+    {
+        for (int j = 0; j < 25; j++)
+        {
+            map8[i][j] = mazeLevelEight[i][j];
+        }
+    }
+
+    for (int i = 0; i < 15; i++)
+    {
+        for (int j = 0; j < 15; j++)
+        {
+            map9[i][j] = mazeLevelNine[i][j];
+        }
+    }
+
+    for (int i = 0; i < 19; i++)
+    {
+        for (int j = 0; j < 19; j++)
+        {
+            map10[i][j] = mazeLevelTen[i][j];
+        }
     }
 }

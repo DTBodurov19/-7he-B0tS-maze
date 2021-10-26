@@ -238,16 +238,16 @@ unsigned char** dynamicMapCreator(unsigned char** a, int n, int m)
     return a;
 }
 
-unsigned char** map1 = dynamicMapCreator(map1, 10, 20);
-unsigned char** map2 = dynamicMapCreator(map2, 12, 12);
-unsigned char** map3 = dynamicMapCreator(map3, 20, 30);
-unsigned char** map4 = dynamicMapCreator(map4, 31, 31);
-unsigned char** map5 = dynamicMapCreator(map5, 25, 22);
-unsigned char** map6 = dynamicMapCreator(map6, 9, 15);
-unsigned char** map7 = dynamicMapCreator(map7, 21, 21);
-unsigned char** map8 = dynamicMapCreator(map8, 25, 25);
-unsigned char** map9 = dynamicMapCreator(map9, 15, 15);
-unsigned char** map10 = dynamicMapCreator(map10, 19, 19);
+unsigned char** mapOne = dynamicMapCreator(mapOne, 10, 20);
+unsigned char** mapTwo = dynamicMapCreator(mapTwo, 12, 12);
+unsigned char** mapThree = dynamicMapCreator(mapThree, 20, 30);
+unsigned char** mapFour = dynamicMapCreator(mapFour, 31, 31);
+unsigned char** mapFive = dynamicMapCreator(mapFive, 25, 22);
+unsigned char** mapSix = dynamicMapCreator(mapSix, 9, 15);
+unsigned char** mapSeven = dynamicMapCreator(mapSeven, 21, 21);
+unsigned char** mapEight = dynamicMapCreator(mapEight, 25, 25);
+unsigned char** mapNine = dynamicMapCreator(mapNine, 15, 15);
+unsigned char** mapTen = dynamicMapCreator(mapTen, 19, 19);
 int* mapOrder = new int[10];
 
 void movement(unsigned char** map, int n, int m)
@@ -385,34 +385,34 @@ void optionOne()
         switch (mapOrder[i])
         {
         case 1:
-            movement(map1, 10, 20);
+            movement(mapOne, 10, 20);
             break;
         case 2:
-            movement(map2, 12, 12);
+            movement(mapTwo, 12, 12);
             break;
         case 3:
-            movement(map3, 20, 30);
+            movement(mapThree, 20, 30);
             break;
         case 4:
-            movement(map4, 31, 31);
+            movement(mapFour, 31, 31);
             break;
         case 5:
-            movement(map5, 25, 22);
+            movement(mapFive, 25, 22);
             break;
         case 6:
-            movement(map6, 9, 15);
+            movement(mapSix, 9, 15);
             break;
         case 7:
-            movement(map7, 21, 21);
+            movement(mapSeven, 21, 21);
             break;
         case 8:
-            movement(map8, 25, 25);
+            movement(mapEight, 25, 25);
             break;
         case 9:
-            movement(map9, 15, 15);
+            movement(mapNine, 15, 15);
             break;
         case 10:
-            movement(map10, 19, 19);
+            movement(mapTen, 19, 19);
             break;
         }
     }
@@ -424,7 +424,7 @@ int main()
     {
         for (int j = 0; j < 20; j++)
         {
-            map1[i][j] = mazeLavelOne[i][j];
+            mapOne[i][j] = mazeLavelOne[i][j];
         }
     }
 
@@ -432,7 +432,7 @@ int main()
     {
         for (int j = 0; j < 12; j++)
         {
-            map2[i][j] = mazeLevelTwo[i][j];
+            mapTwo[i][j] = mazeLevelTwo[i][j];
         }
     }
 
@@ -440,7 +440,7 @@ int main()
     {
         for (int j = 0; j < 30; j++)
         {
-            map3[i][j] = mazeLevelThree[i][j];
+            mapThree[i][j] = mazeLevelThree[i][j];
         }
     }
 
@@ -448,7 +448,7 @@ int main()
     {
         for (int j = 0; j < 31; j++)
         {
-            map4[i][j] = mazeLevelFour[i][j];
+            mapFour[i][j] = mazeLevelFour[i][j];
         }
     }
 
@@ -456,7 +456,7 @@ int main()
     {
         for (int j = 0; j < 22; j++)
         {
-            map5[i][j] = mazeLavelFive[i][j];
+            mapFive[i][j] = mazeLavelFive[i][j];
         }
     }
 
@@ -464,7 +464,7 @@ int main()
     {
         for (int j = 0; j < 15; j++)
         {
-            map6[i][j] = mazeLevelSix[i][j];
+            mapSix[i][j] = mazeLevelSix[i][j];
         }
     }
 
@@ -472,7 +472,7 @@ int main()
     {
         for (int j = 0; j < 21; j++)
         {
-            map7[i][j] = mazeLevelSeven[i][j];
+            mapSeven[i][j] = mazeLevelSeven[i][j];
         }
     }
 
@@ -480,7 +480,7 @@ int main()
     {
         for (int j = 0; j < 25; j++)
         {
-            map8[i][j] = mazeLevelEight[i][j];
+            mapEight[i][j] = mazeLevelEight[i][j];
         }
     }
 
@@ -488,7 +488,7 @@ int main()
     {
         for (int j = 0; j < 15; j++)
         {
-            map9[i][j] = mazeLevelNine[i][j];
+            mapNine[i][j] = mazeLevelNine[i][j];
         }
     }
 
@@ -496,7 +496,7 @@ int main()
     {
         for (int j = 0; j < 19; j++)
         {
-            map10[i][j] = mazeLevelTen[i][j];
+            mapTen[i][j] = mazeLevelTen[i][j];
         }
     }
 }

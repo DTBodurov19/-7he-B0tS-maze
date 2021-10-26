@@ -250,6 +250,46 @@ unsigned char** mapNine = dynamicMapCreator(mapNine, 15, 15);
 unsigned char** mapTen = dynamicMapCreator(mapTen, 19, 19);
 int* mapOrder = new int[10];
 
+int choice;
+
+void menu()
+{
+    do
+    {
+        cout << "---------------------------" << endl;
+        cout << "         Main Menu         " << endl;
+        cout << "---------------------------" << endl;
+
+        cout << "1. Play Game" << endl;
+        cout << "2. Rules" << endl;
+        cout << "3. Quit The Game" << endl;
+        cout << "Enter Your Choice" << endl;
+
+        cin >> choice;
+
+        switch (choice)
+        {
+        case 1: { // Game Code 
+            break;
+        }
+        case 2: {
+            cout << "You cannot go through the X " << endl;
+            cout << "You can only go through the spaces" << endl;
+            cout << "You need the reach the letter F in order to win" << endl;
+            cout << "Have Fun!" << endl;
+            break;
+        }
+        case 3: {
+            break;
+        }
+        default: {
+            cout << "Incotrrect input" << endl;
+            cout << "Enter Your Choice" << endl;
+        }
+        }
+    } while (choice != 3);
+}
+
 void movement(unsigned char** map, int n, int m)
 {
     int posX = 1;

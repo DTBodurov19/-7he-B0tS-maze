@@ -230,11 +230,11 @@ unsigned char mazeLevelTen[19][19] = {
 
 int* mapOrder = new int[10];
 
-void movement(unsigned char** a, int n, int m)
+void movement(unsigned char** map, int n, int m)
 {
     int posX = 1;
     int posY = 1;
-    a[posX][posY] = '*';
+    map[posX][posY] = '*';
     char c = '0';
     while (1)
     {
@@ -244,7 +244,7 @@ void movement(unsigned char** a, int n, int m)
         {
             for (int j = 0; j < m; j++)
             {
-                cout << a[i][j];
+                cout << map[i][j];
             }
             cout << endl;
         }
@@ -256,14 +256,14 @@ void movement(unsigned char** a, int n, int m)
         case 72:
         case 'W':
         case 'w':
-            if (a[posX - 1][posY] != 'X' && a[posX - 1][posY] != 'F')
+            if (map[posX - 1][posY] != 'X' && map[posX - 1][posY] != 'F')
             {
-                a[posX][posY] = ' ';
-                a[posX - 1][posY] = '*';
+                map[posX][posY] = ' ';
+                map[posX - 1][posY] = '*';
                 posX--;
                 break;
             }
-            else if (a[posX - 1][posY] == 'F')
+            else if (map[posX - 1][posY] == 'F')
             {
                 goto level_complete;
             }
@@ -274,14 +274,14 @@ void movement(unsigned char** a, int n, int m)
         case 80:
         case 's':
         case 'S':
-            if (a[posX + 1][posY] != 'X' && a[posX + 1][posY] != 'F')
+            if (map[posX + 1][posY] != 'X' && map[posX + 1][posY] != 'F')
             {
-                a[posX][posY] = ' ';
-                a[posX + 1][posY] = '*';
+                map[posX][posY] = ' ';
+                map[posX + 1][posY] = '*';
                 posX++;
                 break;
             }
-            else if (a[posX + 1][posY] == 'F')
+            else if (map[posX + 1][posY] == 'F')
             {
                 goto level_complete;
             }
@@ -292,14 +292,14 @@ void movement(unsigned char** a, int n, int m)
         case 75:
         case 'A':
         case 'a':
-            if (a[posX][posY - 1] != 'X' && a[posX][posY - 1] != 'F')
+            if (map[posX][posY - 1] != 'X' && map[posX][posY - 1] != 'F')
             {
-                a[posX][posY] = ' ';
-                a[posX][posY - 1] = '*';
+                map[posX][posY] = ' ';
+                map[posX][posY - 1] = '*';
                 posY--;
                 break;
             }
-            else if (a[posX][posY - 1] == 'F')
+            else if (map[posX][posY - 1] == 'F')
             {
                 goto level_complete;
             }
@@ -310,14 +310,14 @@ void movement(unsigned char** a, int n, int m)
         case 77:
         case 'D':
         case 'd':
-            if (a[posX][posY + 1] != 'X' && a[posX][posY + 1] != 'F')
+            if (map[posX][posY + 1] != 'X' && map[posX][posY + 1] != 'F')
             {
-                a[posX][posY] = ' ';
-                a[posX][posY + 1] = '*';
+                map[posX][posY] = ' ';
+                map[posX][posY + 1] = '*';
                 posY++;
                 break;
             }
-            else if (a[posX][posY + 1] == 'F')
+            else if (map[posX][posY + 1] == 'F')
             {
                 goto level_complete;
             }

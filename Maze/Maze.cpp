@@ -256,7 +256,7 @@ void movement(unsigned char** a, int n, int m)
         case 72:
         case 'W':
         case 'w':
-            if (a[posX - 1][posY] != '#' && a[posX - 1][posY] != 'F')
+            if (a[posX - 1][posY] != 'X' && a[posX - 1][posY] != 'F')
             {
                 a[posX][posY] = ' ';
                 a[posX - 1][posY] = '*';
@@ -274,7 +274,7 @@ void movement(unsigned char** a, int n, int m)
         case 80:
         case 's':
         case 'S':
-            if (a[posX + 1][posY] != '#' && a[posX + 1][posY] != 'F')
+            if (a[posX + 1][posY] != 'X' && a[posX + 1][posY] != 'F')
             {
                 a[posX][posY] = ' ';
                 a[posX + 1][posY] = '*';
@@ -292,7 +292,7 @@ void movement(unsigned char** a, int n, int m)
         case 75:
         case 'A':
         case 'a':
-            if (a[posX][posY - 1] != '#' && a[posX][posY - 1] != 'F')
+            if (a[posX][posY - 1] != 'X' && a[posX][posY - 1] != 'F')
             {
                 a[posX][posY] = ' ';
                 a[posX][posY - 1] = '*';
@@ -310,7 +310,7 @@ void movement(unsigned char** a, int n, int m)
         case 77:
         case 'D':
         case 'd':
-            if (a[posX][posY + 1] != '#' && a[posX][posY + 1] != 'F')
+            if (a[posX][posY + 1] != 'X' && a[posX][posY + 1] != 'F')
             {
                 a[posX][posY] = ' ';
                 a[posX][posY + 1] = '*';

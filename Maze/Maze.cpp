@@ -2,7 +2,7 @@
 #include <ctime>
 using namespace std;
 
-unsigned char mazeLavelOne[10][20] = {
+unsigned char mazeLevelOne[10][20] = {
     {'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'}, //1
     {'X',' ',' ',' ',' ',' ',' ',' ','X','X',' ',' ',' ',' ',' ',' ','X','X',' ','X'}, //2
     {'X',' ','X',' ','X','X','X',' ',' ',' ',' ','X','X',' ','X',' ',' ',' ',' ','X'}, //3

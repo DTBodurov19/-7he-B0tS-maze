@@ -378,6 +378,46 @@ void randomMapChooser()
     }
 }
 
+void optionOne()
+{
+    for (int i = 0; i < 10; i++)
+    {
+        switch (mapOrder[i])
+        {
+        case 1:
+            movement(map1, 10, 20);
+            break;
+        case 2:
+            movement(map2, 12, 12);
+            break;
+        case 3:
+            movement(map3, 20, 30);
+            break;
+        case 4:
+            movement(map4, 31, 31);
+            break;
+        case 5:
+            movement(map5, 25, 22);
+            break;
+        case 6:
+            movement(map6, 9, 15);
+            break;
+        case 7:
+            movement(map7, 21, 21);
+            break;
+        case 8:
+            movement(map8, 25, 25);
+            break;
+        case 9:
+            movement(map9, 15, 15);
+            break;
+        case 10:
+            movement(map10, 19, 19);
+            break;
+        }
+    }
+}
+
 int main()
 {
     for (int i = 0; i < 10; i++)

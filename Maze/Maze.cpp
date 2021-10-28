@@ -248,6 +248,7 @@ unsigned char** mapSeven = dynamicMapCreator(mapSeven, 21, 21);
 unsigned char** mapEight = dynamicMapCreator(mapEight, 25, 25);
 unsigned char** mapNine = dynamicMapCreator(mapNine, 15, 15);
 unsigned char** mapTen = dynamicMapCreator(mapTen, 19, 19);
+unsigned char** userMap;
 int* mapOrder = new int[10];
 
 int choice;
@@ -393,6 +394,160 @@ level_complete:
     Sleep(2000);
 }
 
+void userMapCreator(unsigned char** map, int n, int m)
+{
+    int posX = 1;
+    int posY = 1;
+    map[posX][posY] = '*';
+    char c = '0';
+    while (1)
+    {
+        system("cls");
+        cout << "Now build your maze.\n If you are on a square and press 'E' the square you are on will turn into X.\n If you are ready with the map go to the location where you want your finish point ot be and press 'F'.\n";
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < m; j++)
+            {
+                cout << map[i][j];
+            }
+            cout << endl;
+        }
+
+        c = _getch();
+
+
+        switch (c) {
+        case 72:
+        case 'W':
+        case 'w':
+            if (map[posX - 1][posY] != 'X' && map[posX - 1][posY] != 'F')
+            {
+                map[posX][posY] = ' ';
+                map[posX - 1][posY] = '*';
+                posX--;
+                break;
+            }
+            else
+            {
+                break;
+            }
+        case 80:
+        case 's':
+        case 'S':
+            if (map[posX + 1][posY] != 'X' && map[posX + 1][posY] != 'F')
+            {
+                map[posX][posY] = ' ';
+                map[posX + 1][posY] = '*';
+                posX++;
+                break;
+            }
+            else
+            {
+                break;
+            }
+        case 75:
+        case 'A':
+        case 'a':
+            if (map[posX][posY - 1] != 'X' && map[posX][posY - 1] != 'F')
+            {
+                map[posX][posY] = ' ';
+                map[posX][posY - 1] = '*';
+                posY--;
+                break;
+            }
+            else
+            {
+                break;
+            }
+        case 77:
+        case 'D':
+        case 'd':
+            if (map[posX][posY + 1] != 'X' && map[posX][posY + 1] != 'F')
+            {
+                map[posX][posY] = ' ';
+                map[posX][posY + 1] = '*';
+                posY++;
+                break;
+            }
+            else
+            {
+                break;
+            }
+        case 'e':
+        case 'E':
+            map[posX][posY] = 'X';
+            if (map[posX - 1][posY] != 'X')
+            {
+                map[posX - 1][posY] = '*';
+                posX--;
+                break;
+            }
+            else if (map[posX + 1][posY] != 'X')
+            {
+                map[posX + 1][posY] = '*';
+                posX++;
+                break;
+            }
+            else if (map[posX][posY - 1] != 'X')
+            {
+                map[posX][posY - 1] = '*';
+                posY--;
+                break;
+            }
+            else if (map[posX][posY + 1] != 'X')
+            {
+                map[posX][posY + 1] = '*';
+                posY++;
+                break;
+            }
+        case'F':
+        case'f':
+            map[posX][posY] = 'F';
+            goto finish;
+        }
+    }
+finish:
+    cout << "";
+}
+
+unsigned char** userMapStruct(unsigned char** a, int n, int m)
+{
+    for (int i = 0; i < m; i++)
+    {
+        a[0][i] = 'X';
+    }
+    for (int i = 0; i < m; i++)
+    {
+        a[n - 1][i] = 'X';
+    }
+    for (int i = 0; i < n; i++)
+    {
+        a[i][0] = 'X';
+    }
+    for (int i = 0; i < n; i++)
+    {
+        a[i][m - 1] = 'X';
+    }
+    for (int i = 1; i < n - 1; i++)
+    {
+        for (int j = 1; j < m - 1; j++)
+        {
+            a[i][j] = ' ';
+        }
+    }
+    return a;
+}
+
+unsigned char** mapDelete(unsigned char** a, int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        delete a[i];
+    }
+    delete[] a;
+    return a;
+}
+
 void randomMapChooser()
 {
     srand(time(0));
@@ -456,6 +611,57 @@ void optionOne()
             movement(mapTen, 19, 19);
             break;
         }
+    }
+}
+
+void optionTwo()
+{
+    int n, m;
+    cout << "Please type the lenght and the width of the map you want to create\n";
+    cin >> n >> m;
+    n += 2;
+    m += 2;
+again:
+    userMap = dynamicMapCreator(userMap, n, m);
+    userMap = userMapStruct(userMap, n, m);
+    userMapCreator(userMap, n, m);
+save_changes_wrong_letter:
+    cout << "Save changes? Y/N\n";
+    char choice;
+    cin >> choice;
+    if ((choice == 'y') || (choice == 'Y'))
+    {
+        cout << "Cool, now is your turn to play.\n";
+        Sleep(2000);
+        system("cls");
+        movement(userMap, n, m);
+    }
+    else if ((choice == 'n') || (choice == 'N'))
+    {
+    wrong_input_for_N:
+        cout << "Do you want to try again?Y/N\n";
+        cin >> choice;
+        if ((choice == 'y') || (choice == 'Y'))
+        {
+            userMap = mapDelete(userMap, n);
+            goto again;
+        }
+        else if ((choice == 'n') || (choice == 'N'))
+        {
+            menu();
+        }
+        else
+        {
+            cout << "Please type the correct letter!\n";
+            Sleep(2000);
+            goto wrong_input_for_N;
+        }
+    }
+    else
+    {
+        cout << "Please type the correct letter!\n";
+        Sleep(2000);
+        goto save_changes_wrong_letter;
     }
 }
 

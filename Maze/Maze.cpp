@@ -1,7 +1,11 @@
-#include <iostream>
-#include <ctime>
-#include<conio.h>
-#include<Windows.h>
+#include <iostream> //Basic Library
+
+#include <ctime> //For Random Numbers
+
+#include<conio.h> //Movement
+
+#include<Windows.h> //For sleep
+
 using namespace std;
 
 unsigned char mazeLevelOne[10][20] = {
@@ -228,11 +232,9 @@ unsigned char mazeLevelTen[19][19] = {
 
 };
 
-unsigned char** dynamicMapCreator(unsigned char** a, int n, int m)
-{
+unsigned char** dynamicMapCreator(unsigned char** a, int n, int m) {
     a = new unsigned char* [n];
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         a[i] = new unsigned char[m];
     }
     return a;
@@ -251,60 +253,18 @@ unsigned char** mapTen = dynamicMapCreator(mapTen, 19, 19);
 unsigned char** userMap;
 int* mapOrder = new int[10];
 
-int choice;
+void menu();
 
-void menu()
-{
-    do
-    {
-        cout << "---------------------------" << endl;
-        cout << "         Main Menu         " << endl;
-        cout << "---------------------------" << endl;
-
-        cout << "1. Play Game" << endl;
-        cout << "2. Rules" << endl;
-        cout << "3. Quit The Game" << endl;
-        cout << "Enter Your Choice" << endl;
-
-        cin >> choice;
-
-        switch (choice)
-        {
-        case 1: { // Game Code 
-            break;
-        }
-        case 2: {
-            cout << "You cannot go through the X " << endl;
-            cout << "You can only go through the spaces" << endl;
-            cout << "You need the reach the letter F in order to win" << endl;
-            cout << "Have Fun!" << endl;
-            break;
-        }
-        case 3: {
-            break;
-        }
-        default: {
-            cout << "Incotrrect input" << endl;
-            cout << "Enter Your Choice" << endl;
-        }
-        }
-    } while (choice != 3);
-}
-
-void movement(unsigned char** map, int n, int m)
-{
+void movement(unsigned char** map, int n, int m) {
     int posX = 1;
     int posY = 1;
     map[posX][posY] = '*';
     char c = '0';
-    while (1)
-    {
+    while (1) {
         system("cls");
 
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = 0; j < m; j++)
-            {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
                 cout << map[i][j];
             }
             cout << endl;
@@ -312,78 +272,65 @@ void movement(unsigned char** map, int n, int m)
 
         c = _getch();
 
-
         switch (c) {
         case 72:
         case 'W':
         case 'w':
-            if (map[posX - 1][posY] != 'X' && map[posX - 1][posY] != 'F')
-            {
+            if (map[posX - 1][posY] != 'X' && map[posX - 1][posY] != 'F') {
                 map[posX][posY] = ' ';
                 map[posX - 1][posY] = '*';
                 posX--;
                 break;
             }
-            else if (map[posX - 1][posY] == 'F')
-            {
+            else if (map[posX - 1][posY] == 'F') {
                 goto level_complete;
             }
-            else
-            {
+            else {
                 break;
             }
         case 80:
         case 's':
         case 'S':
-            if (map[posX + 1][posY] != 'X' && map[posX + 1][posY] != 'F')
-            {
+            if (map[posX + 1][posY] != 'X' && map[posX + 1][posY] != 'F') {
                 map[posX][posY] = ' ';
                 map[posX + 1][posY] = '*';
                 posX++;
                 break;
             }
-            else if (map[posX + 1][posY] == 'F')
-            {
+            else if (map[posX + 1][posY] == 'F') {
                 goto level_complete;
             }
-            else
-            {
+            else {
                 break;
             }
         case 75:
         case 'A':
         case 'a':
-            if (map[posX][posY - 1] != 'X' && map[posX][posY - 1] != 'F')
-            {
+            if (map[posX][posY - 1] != 'X' && map[posX][posY - 1] != 'F') {
                 map[posX][posY] = ' ';
                 map[posX][posY - 1] = '*';
                 posY--;
                 break;
             }
-            else if (map[posX][posY - 1] == 'F')
-            {
+            else if (map[posX][posY - 1] == 'F') {
                 goto level_complete;
             }
-            else
-            {
+            else {
                 break;
             }
         case 77:
         case 'D':
         case 'd':
-            if (map[posX][posY + 1] != 'X' && map[posX][posY + 1] != 'F')
-            {
+            if (map[posX][posY + 1] != 'X' && map[posX][posY + 1] != 'F') {
                 map[posX][posY] = ' ';
                 map[posX][posY + 1] = '*';
                 posY++;
                 break;
             }
-            else if (map[posX][posY + 1] == 'F')
-            {
+            else if (map[posX][posY + 1] == 'F') {
                 goto level_complete;
             }
-            else
-            {
+            else {
                 break;
             }
         }
@@ -394,20 +341,16 @@ level_complete:
     Sleep(2000);
 }
 
-void userMapCreator(unsigned char** map, int n, int m)
-{
+void userMapCreator(unsigned char** map, int n, int m) {
     int posX = 1;
     int posY = 1;
     map[posX][posY] = '*';
     char c = '0';
-    while (1)
-    {
+    while (1) {
         system("cls");
         cout << "Now build your maze.\n If you are on a square and press 'E' the square you are on will turn into X.\n If you are ready with the map go to the location where you want your finish point ot be and press 'F'.\n";
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = 0; j < m; j++)
-            {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
                 cout << map[i][j];
             }
             cout << endl;
@@ -415,93 +358,80 @@ void userMapCreator(unsigned char** map, int n, int m)
 
         c = _getch();
 
-
         switch (c) {
         case 72:
         case 'W':
         case 'w':
-            if (map[posX - 1][posY] != 'X' && map[posX - 1][posY] != 'F')
-            {
+            if (map[posX - 1][posY] != 'X' && map[posX - 1][posY] != 'F') {
                 map[posX][posY] = ' ';
                 map[posX - 1][posY] = '*';
                 posX--;
                 break;
             }
-            else
-            {
+            else {
                 break;
             }
         case 80:
         case 's':
         case 'S':
-            if (map[posX + 1][posY] != 'X' && map[posX + 1][posY] != 'F')
-            {
+            if (map[posX + 1][posY] != 'X' && map[posX + 1][posY] != 'F') {
                 map[posX][posY] = ' ';
                 map[posX + 1][posY] = '*';
                 posX++;
                 break;
             }
-            else
-            {
+            else {
                 break;
             }
         case 75:
         case 'A':
         case 'a':
-            if (map[posX][posY - 1] != 'X' && map[posX][posY - 1] != 'F')
-            {
+            if (map[posX][posY - 1] != 'X' && map[posX][posY - 1] != 'F') {
                 map[posX][posY] = ' ';
                 map[posX][posY - 1] = '*';
                 posY--;
                 break;
             }
-            else
-            {
+            else {
                 break;
             }
         case 77:
         case 'D':
         case 'd':
-            if (map[posX][posY + 1] != 'X' && map[posX][posY + 1] != 'F')
-            {
+            if (map[posX][posY + 1] != 'X' && map[posX][posY + 1] != 'F') {
                 map[posX][posY] = ' ';
                 map[posX][posY + 1] = '*';
                 posY++;
                 break;
             }
-            else
-            {
+            else {
                 break;
             }
         case 'e':
         case 'E':
             map[posX][posY] = 'X';
-            if (map[posX - 1][posY] != 'X')
-            {
+            if (map[posX - 1][posY] != 'X') {
                 map[posX - 1][posY] = '*';
                 posX--;
                 break;
             }
-            else if (map[posX + 1][posY] != 'X')
-            {
+            else if (map[posX + 1][posY] != 'X') {
                 map[posX + 1][posY] = '*';
                 posX++;
                 break;
             }
-            else if (map[posX][posY - 1] != 'X')
-            {
+            else if (map[posX][posY - 1] != 'X') {
                 map[posX][posY - 1] = '*';
                 posY--;
                 break;
             }
-            else if (map[posX][posY + 1] != 'X')
-            {
+            else if (map[posX][posY + 1] != 'X') {
                 map[posX][posY + 1] = '*';
                 posY++;
                 break;
             }
-        case'F':
-        case'f':
+        case 'F':
+        case 'f':
             map[posX][posY] = 'F';
             goto finish;
         }
@@ -510,61 +440,47 @@ finish:
     cout << "";
 }
 
-unsigned char** userMapStruct(unsigned char** a, int n, int m)
-{
-    for (int i = 0; i < m; i++)
-    {
+unsigned char** userMapStruct(unsigned char** a, int n, int m) {
+    for (int i = 0; i < m; i++) {
         a[0][i] = 'X';
     }
-    for (int i = 0; i < m; i++)
-    {
+    for (int i = 0; i < m; i++) {
         a[n - 1][i] = 'X';
     }
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         a[i][0] = 'X';
     }
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         a[i][m - 1] = 'X';
     }
-    for (int i = 1; i < n - 1; i++)
-    {
-        for (int j = 1; j < m - 1; j++)
-        {
+    for (int i = 1; i < n - 1; i++) {
+        for (int j = 1; j < m - 1; j++) {
             a[i][j] = ' ';
         }
     }
     return a;
 }
 
-unsigned char** mapDelete(unsigned char** a, int n)
-{
-    for (int i = 0; i < n; i++)
-    {
+unsigned char** mapDelete(unsigned char** a, int n) {
+    for (int i = 0; i < n; i++) {
         delete a[i];
     }
     delete[] a;
     return a;
 }
 
-void randomMapChooser()
-{
+void randomMapChooser() {
     srand(time(0));
-    for (int i = 0; i < 10; i++)
-    {
+    for (int i = 0; i < 10; i++) {
         bool check;
         int n;
-        do
-        {
+        do {
 
             n = (rand() % 10) + 1;
 
-
             check = true;
             for (int j = 0; j < i; j++)
-                if (n == mapOrder[j])
-                {
+                if (n == mapOrder[j]) {
                     check = false;
                     break;
                 }
@@ -573,13 +489,10 @@ void randomMapChooser()
     }
 }
 
-void optionOne()
-{
+void optionOne() {
     randomMapChooser();
-    for (int i = 0; i < 10; i++)
-    {
-        switch (mapOrder[i])
-        {
+    for (int i = 0; i < 10; i++) {
+        switch (mapOrder[i]) {
         case 1:
             movement(mapOne, 10, 20);
             break;
@@ -614,8 +527,7 @@ void optionOne()
     }
 }
 
-void optionTwo()
-{
+void optionTwo() {
     int n, m;
     cout << "Please type the lenght and the width of the map you want to create\n";
     cin >> n >> m;
@@ -629,121 +541,152 @@ save_changes_wrong_letter:
     cout << "Save changes? Y/N\n";
     char choice;
     cin >> choice;
-    if ((choice == 'y') || (choice == 'Y'))
-    {
+    if ((choice == 'y') || (choice == 'Y')) {
         cout << "Cool, now is your turn to play.\n";
         Sleep(2000);
         system("cls");
         movement(userMap, n, m);
     }
-    else if ((choice == 'n') || (choice == 'N'))
-    {
-    wrong_input_for_N:
-        cout << "Do you want to try again?Y/N\n";
+    else if ((choice == 'n') || (choice == 'N')) {
+    wrong_input_for_N: cout << "Do you want to try again?Y/N\n";
         cin >> choice;
-        if ((choice == 'y') || (choice == 'Y'))
-        {
+        if ((choice == 'y') || (choice == 'Y')) {
             userMap = mapDelete(userMap, n);
             goto again;
         }
-        else if ((choice == 'n') || (choice == 'N'))
-        {
+        else if ((choice == 'n') || (choice == 'N')) {
             menu();
         }
-        else
-        {
+        else {
             cout << "Please type the correct letter!\n";
             Sleep(2000);
             goto wrong_input_for_N;
         }
     }
-    else
-    {
+    else {
         cout << "Please type the correct letter!\n";
         Sleep(2000);
         goto save_changes_wrong_letter;
     }
 }
 
-int main()
-{
-    for (int i = 0; i < 10; i++)
-    {
-        for (int j = 0; j < 20; j++)
-        {
+int choice;
+int gameChoice;
+
+void menu() {
+
+    while (choice != 3) {
+        cout << "---------------------------" << endl;
+        cout << "         Main Menu         " << endl;
+        cout << "---------------------------" << endl;
+
+        cout << "1. Play Game" << endl;
+        cout << "2. Rules" << endl;
+        cout << "3. Quit The Game" << endl;
+        cout << "Enter Your Choice" << endl;
+
+        cin >> choice;
+
+        switch (choice) {
+        case 1: {
+        wrong_game_choose:
+            system("cls");
+            cout << "1.Ten Level Game" << endl;
+            cout << "2.Build your own maze" << endl;
+            cout << "Enter your choice" << endl;
+
+            cin >> gameChoice;
+
+            if (gameChoice == 1) {
+                optionOne();
+            }
+            else if (gameChoice == 2) {
+                optionTwo();
+            }
+            else {
+                cout << "Try again!" << endl;
+                goto wrong_game_choose;
+            }
+        }
+        case 2: {
+            system("cls");
+            cout << "You cannot go through the X " << endl;
+            cout << "You can only go through the spaces" << endl;
+            cout << "You need the reach the letter F in order to win" << endl;
+            cout << "Have Fun!" << endl;
+            break;
+        }
+        case 3: {
+            break;
+        }
+        default: {
+            cout << "Incotrrect input" << endl;
+            cout << "Enter Your Choice" << endl;
+        }
+        }
+    }
+}
+
+int main() {
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 20; j++) {
             mapOne[i][j] = mazeLevelOne[i][j];
         }
     }
 
-    for (int i = 0; i < 12; i++)
-    {
-        for (int j = 0; j < 12; j++)
-        {
+    for (int i = 0; i < 12; i++) {
+        for (int j = 0; j < 12; j++) {
             mapTwo[i][j] = mazeLevelTwo[i][j];
         }
     }
 
-    for (int i = 0; i < 20; i++)
-    {
-        for (int j = 0; j < 30; j++)
-        {
+    for (int i = 0; i < 20; i++) {
+        for (int j = 0; j < 30; j++) {
             mapThree[i][j] = mazeLevelThree[i][j];
         }
     }
 
-    for (int i = 0; i < 31; i++)
-    {
-        for (int j = 0; j < 31; j++)
-        {
+    for (int i = 0; i < 31; i++) {
+        for (int j = 0; j < 31; j++) {
             mapFour[i][j] = mazeLevelFour[i][j];
         }
     }
 
-    for (int i = 0; i < 25; i++)
-    {
-        for (int j = 0; j < 22; j++)
-        {
+    for (int i = 0; i < 25; i++) {
+        for (int j = 0; j < 22; j++) {
             mapFive[i][j] = mazeLavelFive[i][j];
         }
     }
 
-    for (int i = 0; i < 9; i++)
-    {
-        for (int j = 0; j < 15; j++)
-        {
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 15; j++) {
             mapSix[i][j] = mazeLevelSix[i][j];
         }
     }
 
-    for (int i = 0; i < 21; i++)
-    {
-        for (int j = 0; j < 21; j++)
-        {
+    for (int i = 0; i < 21; i++) {
+        for (int j = 0; j < 21; j++) {
             mapSeven[i][j] = mazeLevelSeven[i][j];
         }
     }
 
-    for (int i = 0; i < 25; i++)
-    {
-        for (int j = 0; j < 25; j++)
-        {
+    for (int i = 0; i < 25; i++) {
+        for (int j = 0; j < 25; j++) {
             mapEight[i][j] = mazeLevelEight[i][j];
         }
     }
 
-    for (int i = 0; i < 15; i++)
-    {
-        for (int j = 0; j < 15; j++)
-        {
+    for (int i = 0; i < 15; i++) {
+        for (int j = 0; j < 15; j++) {
             mapNine[i][j] = mazeLevelNine[i][j];
         }
     }
 
-    for (int i = 0; i < 19; i++)
-    {
-        for (int j = 0; j < 19; j++)
-        {
+    for (int i = 0; i < 19; i++) {
+        for (int j = 0; j < 19; j++) {
             mapTen[i][j] = mazeLevelTen[i][j];
         }
     }
+
+    menu();
 }

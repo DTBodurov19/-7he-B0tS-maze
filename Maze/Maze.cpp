@@ -420,6 +420,7 @@ void randomMapChooser()
 
 void optionOne()
 {
+    randomMapChooser();
     for (int i = 0; i < 10; i++)
     {
         switch (mapOrder[i])

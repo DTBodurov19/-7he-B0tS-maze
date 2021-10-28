@@ -14,7 +14,7 @@
 
 ## Preview
 
-<!-- Image of a Maze -->
+<img src="Images/Maze.png">
 
 ---
 

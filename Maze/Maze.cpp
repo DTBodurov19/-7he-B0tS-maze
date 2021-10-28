@@ -1,3 +1,5 @@
+
+
 #include <iostream> //Basic Library
 
 #include <ctime> //For Random Numbers
@@ -588,6 +590,7 @@ int gameChoice;
 void menu() { // Create Menu For The Game
 
     while (choice != 3) {
+    wrong_choice:
         system("cls");
         cout << "---------------------------" << endl;
         cout << "     Main Menu         " << endl;
@@ -617,7 +620,8 @@ void menu() { // Create Menu For The Game
                 optionTwo();
             }
             else {
-                cout << "Try again!" << endl;
+                cout << "Incorrect Input!" << endl;
+                Sleep(1000);
                 goto wrong_game_choose;
             }
         }
@@ -633,8 +637,9 @@ void menu() { // Create Menu For The Game
             break;
         }
         default: {
-            cout << "Incotrrect input" << endl;
-            cout << "Enter Your Choice" << endl;
+            cout << "Incotrrect Input!" << endl;
+            Sleep(1000);
+            goto wrong_choice;
         }
         }
     }

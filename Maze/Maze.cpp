@@ -464,7 +464,7 @@ int main()
     {
         for (int j = 0; j < 20; j++)
         {
-            mapOne[i][j] = mazeLavelOne[i][j];
+            mapOne[i][j] = mazeLevelOne[i][j];
         }
     }
 

@@ -265,6 +265,7 @@ void movement(unsigned char** map, int n, int m) { //For Moving The Star
         cout << "Press 'Q' to return to menu.\n";
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
+                cout << " ";
                 cout << map[i][j];
             }
             cout << endl;
@@ -360,6 +361,7 @@ void userMapCreator(unsigned char** map, int n, int m) { //For The Creation Of U
         cout << "Now build your maze.\n If you are on a square and press 'E' the square you are on will turn into X.\n If you are ready with the map go to the location where you want your finish point ot be and press 'F'.\n";
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
+                cout << " ";
                 cout << map[i][j];
             }
             cout << endl;

@@ -262,7 +262,7 @@ void movement(unsigned char** map, int n, int m) { //For Moving The Star
     char c = '0';
     while (1) {
         system("cls");
-
+        cout << "Press 'Q' to return to menu.\n";
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 cout << map[i][j];
@@ -333,8 +333,17 @@ void movement(unsigned char** map, int n, int m) { //For Moving The Star
             else {
                 break;
             }
+        case 'q':
+        case 'Q':
+            goto quit;
+            break;
         }
     }
+quit:
+    system("cls");
+    cout << "You quit. Returning to menu in 3 seconds.\n";
+    Sleep(2000);
+    menu();
 level_complete:
     system("cls");
     cout << "Level completed!";
@@ -528,12 +537,13 @@ void optionOne() { //Play The Map Level Game
 }
 
 void optionTwo() {  //Build Your Own Maze
+again:
     int n, m;
+    system("cls");
     cout << "Please type the lenght and the width of the map you want to create\n";
     cin >> n >> m;
     n += 2;
     m += 2;
-again:
     userMap = dynamicMapCreator(userMap, n, m);
     userMap = userMapStruct(userMap, n, m);
     userMapCreator(userMap, n, m);
@@ -576,6 +586,7 @@ int gameChoice;
 void menu() { // Create Menu For The Game
 
     while (choice != 3) {
+        system("cls");
         cout << "---------------------------" << endl;
         cout << "     Main Menu         " << endl;
         cout << "---------------------------" << endl;

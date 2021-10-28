@@ -4,7 +4,7 @@
 
 #include<conio.h> //Movement
 
-#include<Windows.h> //For sleep
+#include<Windows.h> //For Sleep
 
 using namespace std;
 
@@ -240,22 +240,22 @@ unsigned char** dynamicMapCreator(unsigned char** a, int n, int m) {
     return a;
 }
 
-unsigned char** mapOne = dynamicMapCreator(mapOne, 10, 20);
-unsigned char** mapTwo = dynamicMapCreator(mapTwo, 12, 12);
-unsigned char** mapThree = dynamicMapCreator(mapThree, 20, 30);
-unsigned char** mapFour = dynamicMapCreator(mapFour, 31, 31);
-unsigned char** mapFive = dynamicMapCreator(mapFive, 25, 22);
-unsigned char** mapSix = dynamicMapCreator(mapSix, 9, 15);
-unsigned char** mapSeven = dynamicMapCreator(mapSeven, 21, 21);
-unsigned char** mapEight = dynamicMapCreator(mapEight, 25, 25);
-unsigned char** mapNine = dynamicMapCreator(mapNine, 15, 15);
-unsigned char** mapTen = dynamicMapCreator(mapTen, 19, 19);
+unsigned char** mapOne = dynamicMapCreator(mapOne, 10, 20); //Make mazeLevelOne Dynamic
+unsigned char** mapTwo = dynamicMapCreator(mapTwo, 12, 12); //Make mazeLevelTwo Dynamic
+unsigned char** mapThree = dynamicMapCreator(mapThree, 20, 30); //Make mazeLevelThree Dynamic
+unsigned char** mapFour = dynamicMapCreator(mapFour, 31, 31); //Make mazeLevelFour Dynamic
+unsigned char** mapFive = dynamicMapCreator(mapFive, 25, 22); //Make mazeLevelFive Dynamic
+unsigned char** mapSix = dynamicMapCreator(mapSix, 9, 15); //Make mazeLevelSix Dynamic
+unsigned char** mapSeven = dynamicMapCreator(mapSeven, 21, 21); //Make mazeLevelSeven Dynamic
+unsigned char** mapEight = dynamicMapCreator(mapEight, 25, 25); //Make mazeLevelEight Dynamic
+unsigned char** mapNine = dynamicMapCreator(mapNine, 15, 15); //Make mazeLevelNine Dynamic
+unsigned char** mapTen = dynamicMapCreator(mapTen, 19, 19); //Make mazeLevelTen Dynamic
 unsigned char** userMap;
 int* mapOrder = new int[10];
 
 void menu();
 
-void movement(unsigned char** map, int n, int m) {
+void movement(unsigned char** map, int n, int m) { //For Moving The Star
     int posX = 1;
     int posY = 1;
     map[posX][posY] = '*';
@@ -341,7 +341,7 @@ level_complete:
     Sleep(2000);
 }
 
-void userMapCreator(unsigned char** map, int n, int m) {
+void userMapCreator(unsigned char** map, int n, int m) { //For The Creation Of User Maps
     int posX = 1;
     int posY = 1;
     map[posX][posY] = '*';
@@ -461,7 +461,7 @@ unsigned char** userMapStruct(unsigned char** a, int n, int m) {
     return a;
 }
 
-unsigned char** mapDelete(unsigned char** a, int n) {
+unsigned char** mapDelete(unsigned char** a, int n) { //Free The Memory
     for (int i = 0; i < n; i++) {
         delete a[i];
     }
@@ -489,7 +489,7 @@ void randomMapChooser() {
     }
 }
 
-void optionOne() {
+void optionOne() { //Play The Map Level Game
     randomMapChooser();
     for (int i = 0; i < 10; i++) {
         switch (mapOrder[i]) {
@@ -527,7 +527,7 @@ void optionOne() {
     }
 }
 
-void optionTwo() {
+void optionTwo() {  //Build Your Own Maze
     int n, m;
     cout << "Please type the lenght and the width of the map you want to create\n";
     cin >> n >> m;
@@ -573,11 +573,11 @@ save_changes_wrong_letter:
 int choice;
 int gameChoice;
 
-void menu() {
+void menu() { // Create Menu For The Game
 
     while (choice != 3) {
         cout << "---------------------------" << endl;
-        cout << "         Main Menu         " << endl;
+        cout << "     Main Menu         " << endl;
         cout << "---------------------------" << endl;
 
         cout << "1. Play Game" << endl;
@@ -688,5 +688,5 @@ int main() {
         }
     }
 
-    menu();
+    menu(); //Call Menu Function
 }

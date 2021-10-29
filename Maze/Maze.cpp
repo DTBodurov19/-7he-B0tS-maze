@@ -631,6 +631,7 @@ void menu() { // Create Menu For The Game
             cout << "You can only go through the spaces" << endl;
             cout << "You need the reach the letter F in order to win" << endl;
             cout << "Have Fun!" << endl;
+            Sleep(3000);
             break;
         }
         case 3: {

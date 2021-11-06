@@ -648,7 +648,7 @@ void menu() { // Create Menu For The Game
             break;
         }
         default: {
-            cout << "Incotrrect Input!" << endl;
+            cout << "Incorrect Input!" << endl;
             Sleep(1000);
             goto wrong_choice;
         }

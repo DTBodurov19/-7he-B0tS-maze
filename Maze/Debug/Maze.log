@@ -1,3 +1,3 @@
 ﻿  Maze.cpp
-C:\Users\ЗАРИ\source\repos\-7he-B0tS-maze\Maze\Maze.cpp(482,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\ЗАРИ\source\repos\-7he-B0tS-maze\Maze\Maze.cpp(496,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Maze.vcxproj -> C:\Users\ЗАРИ\source\repos\-7he-B0tS-maze\Maze\Debug\Maze.exe

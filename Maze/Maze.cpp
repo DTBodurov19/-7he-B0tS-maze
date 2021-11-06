@@ -361,6 +361,7 @@ void userMapCreator(unsigned char** map, int n, int m) { //For The Creation Of U
     while (1) {
         system("cls");
         cout << "Now build your maze.\n If you are on a square and press 'E' the square you are on will turn into X.\n If you are ready with the map go to the location where you want your finish point ot be and press 'F'.\n";
+        cout << "Press 'Q' to return to menu.\n";
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 cout << " ";
@@ -447,8 +448,17 @@ void userMapCreator(unsigned char** map, int n, int m) { //For The Creation Of U
         case 'f':
             map[posX][posY] = 'F';
             goto finish;
+        case 'q':
+        case 'Q':
+            goto quit;
+            break;
         }
     }
+quit:
+    system("cls");
+    cout << "You quit. Returning to menu in 3 seconds.\n";
+    Sleep(2000);
+    menu();
 finish:
     cout << "";
 }

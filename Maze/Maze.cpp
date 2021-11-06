@@ -338,11 +338,11 @@ void movement(unsigned char** map, int n, int m) { //For Moving The Star
             }
         case 'q':
         case 'Q':
-            goto quit;
+            goto quit_maze;
             break;
         }
     }
-quit:
+quit_maze:
     system("cls");
     cout << "You quit. Returning to menu in 3 seconds.\n";
     Sleep(2000);
@@ -450,11 +450,11 @@ void userMapCreator(unsigned char** map, int n, int m) { //For The Creation Of U
             goto finish;
         case 'q':
         case 'Q':
-            goto quit;
+            goto quit_user_maze;
             break;
         }
     }
-quit:
+quit_user_maze:
     system("cls");
     cout << "You quit. Returning to menu in 3 seconds.\n";
     Sleep(2000);

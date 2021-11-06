@@ -32,6 +32,4 @@
 
 ---
 
-## Download
 
-> If you want to download it <!-- Link to download -->

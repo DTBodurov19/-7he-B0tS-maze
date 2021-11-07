@@ -234,7 +234,7 @@ unsigned char mazeLevelTen[19][19] = {
 
 };
 
-unsigned char** dynamicMapCreator(unsigned char** a, int n, int m) {
+unsigned char** dynamicMapCreator(unsigned char** a, int n, int m) { //Turn The Ten Arrays Into Dynamic
     a = new unsigned char* [n];
     for (int i = 0; i < n; i++) {
         a[i] = new unsigned char[m];
@@ -255,9 +255,9 @@ unsigned char** mapTen = dynamicMapCreator(mapTen, 19, 19); //Make mazeLevelTen 
 unsigned char** userMap;
 int* mapOrder = new int[10];
 
-void menu();
+void menu(); //Function Declaration 
 
-void movement(unsigned char** map, int n, int m) { //For Moving The Star
+void movement(unsigned char** map, int n, int m) { //Moving The Star
     int posX = 1;
     int posY = 1;
     map[posX][posY] = '*';
@@ -268,15 +268,15 @@ void movement(unsigned char** map, int n, int m) { //For Moving The Star
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 cout << " ";
-                cout << map[i][j];
+                cout << map[i][j]; //Printing The Maze
             }
             cout << endl;
         }
 
         c = _getch();
 
-        switch (c) {
-        case 72:
+        switch (c) { //Switch For A Movement
+        case 72: //Up Arrow
         case 'W':
         case 'w':
             if (map[posX - 1][posY] != 'X' && map[posX - 1][posY] != 'F') {
@@ -291,7 +291,7 @@ void movement(unsigned char** map, int n, int m) { //For Moving The Star
             else {
                 break;
             }
-        case 80:
+        case 80: //Down Arrow 
         case 's':
         case 'S':
             if (map[posX + 1][posY] != 'X' && map[posX + 1][posY] != 'F') {
@@ -306,7 +306,7 @@ void movement(unsigned char** map, int n, int m) { //For Moving The Star
             else {
                 break;
             }
-        case 75:
+        case 75: //Left Arrow
         case 'A':
         case 'a':
             if (map[posX][posY - 1] != 'X' && map[posX][posY - 1] != 'F') {
@@ -321,7 +321,7 @@ void movement(unsigned char** map, int n, int m) { //For Moving The Star
             else {
                 break;
             }
-        case 77:
+        case 77: //Right Arrow
         case 'D':
         case 'd':
             if (map[posX][posY + 1] != 'X' && map[posX][posY + 1] != 'F') {
@@ -365,15 +365,15 @@ void userMapCreator(unsigned char** map, int n, int m) { //For The Creation Of U
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 cout << " ";
-                cout << map[i][j];
+                cout << map[i][j]; //Printing The Maze
             }
             cout << endl;
         }
 
         c = _getch();
 
-        switch (c) {
-        case 72:
+        switch (c) { //Switch For Movement And Building
+        case 72: //Up Arrow
         case 'W':
         case 'w':
             if (map[posX - 1][posY] != 'X' && map[posX - 1][posY] != 'F') {
@@ -385,7 +385,7 @@ void userMapCreator(unsigned char** map, int n, int m) { //For The Creation Of U
             else {
                 break;
             }
-        case 80:
+        case 80: //Down Arrow
         case 's':
         case 'S':
             if (map[posX + 1][posY] != 'X' && map[posX + 1][posY] != 'F') {
@@ -397,7 +397,7 @@ void userMapCreator(unsigned char** map, int n, int m) { //For The Creation Of U
             else {
                 break;
             }
-        case 75:
+        case 75: //Left Arrow
         case 'A':
         case 'a':
             if (map[posX][posY - 1] != 'X' && map[posX][posY - 1] != 'F') {
@@ -409,7 +409,7 @@ void userMapCreator(unsigned char** map, int n, int m) { //For The Creation Of U
             else {
                 break;
             }
-        case 77:
+        case 77: //Right Arrow
         case 'D':
         case 'd':
             if (map[posX][posY + 1] != 'X' && map[posX][posY + 1] != 'F') {
@@ -421,8 +421,8 @@ void userMapCreator(unsigned char** map, int n, int m) { //For The Creation Of U
             else {
                 break;
             }
-        case 'e':
-        case 'E':
+        case 'e': //For Placing The X
+        case 'E': 
             map[posX][posY] = 'X';
             if (map[posX - 1][posY] != 'X') {
                 map[posX - 1][posY] = '*';
@@ -444,11 +444,11 @@ void userMapCreator(unsigned char** map, int n, int m) { //For The Creation Of U
                 posY++;
                 break;
             }
-        case 'F':
+        case 'F': //Add Finish Point
         case 'f':
             map[posX][posY] = 'F';
             goto finish;
-        case 'q':
+        case 'q': //Exit The Game
         case 'Q':
             goto quit_user_maze;
             break;
@@ -463,7 +463,7 @@ finish:
     cout << "";
 }
 
-unsigned char** userMapStruct(unsigned char** a, int n, int m) {
+unsigned char** userMapStruct(unsigned char** a, int n, int m) { //Build The  Box
     for (int i = 0; i < m; i++) {
         a[0][i] = 'X';
     }
@@ -492,7 +492,7 @@ unsigned char** mapDelete(unsigned char** a, int n) { //Free The Memory
     return a;
 }
 
-void randomMapChooser() {
+void randomMapChooser() { // Pick A Map
     srand(time(0));
     for (int i = 0; i < 10; i++) {
         bool check;
@@ -611,7 +611,7 @@ void menu() { // Create Menu For The Game
         cout << "3. Quit The Game" << endl;
         cout << "Enter Your Choice" << endl;
 
-        cin >> choice;
+        cin >> choice; //Chose From 1 To 3
 
         switch (choice) {
         case 1: {
@@ -621,7 +621,7 @@ void menu() { // Create Menu For The Game
             cout << "2.Build your own maze" << endl;
             cout << "Enter your choice" << endl;
 
-            cin >> gameChoice;
+            cin >> gameChoice; //Chose from 1 Or 2
 
             if (gameChoice == 1) {
                 optionOne();

@@ -349,7 +349,7 @@ quit_maze:
     menu();
 level_complete:
     system("cls");
-    cout << "Level completed!";
+    cout << "Level completed!\n";
     Sleep(2000);
 }
 
@@ -558,6 +558,9 @@ void optionOne() { //Play The Map Level Game
         }
     }
     congrats();
+    cout << "Press any button to continue.";
+    char cont;
+    cont = _getch();
 }
 
 void optionTwo() {  //Build Your Own Maze
@@ -581,6 +584,9 @@ save_changes_wrong_letter:
         system("cls");
         movement(userMap, n, m);
         congrats();
+        cout << "Press any button to continue.";
+        char cont;
+        cont = _getch();
     }
     else if ((choice == 'n') || (choice == 'N')) {
     wrong_input_for_N: cout << "Do you want to try again?Y/N\n";
@@ -645,6 +651,7 @@ void menu() { // Create Menu For The Game
                 Sleep(1000);
                 goto wrong_game_choose;
             }
+            break;
         }
         case 2: {
             system("cls");
@@ -662,6 +669,7 @@ void menu() { // Create Menu For The Game
             cout << "Incorrect Input!" << endl;
             Sleep(1000);
             goto wrong_choice;
+            break;
         }
         }
     }

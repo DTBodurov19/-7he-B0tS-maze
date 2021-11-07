@@ -511,6 +511,15 @@ void randomMapChooser() { // Pick A Map
         mapOrder[i] = n;
     }
 }
+void congrats() {
+    cout << "  //-    =========      ||            =========    ||========     // \\       ||                //=====" << endl;
+    cout << " //      ||     ||      ||=======     |       |    ||            //   \\   ===||===            //" << endl;
+    cout << "||       ||     ||      ||     ||     |=======|    ||           //=====\\     ||             ||" << endl;
+    cout << " \\\\      ||     ||      ||     ||             |    ||          //       \\    ||            //" << endl;
+    cout << "  \\\\_    =========      ||     ||    =========|    ||         //         \\   ||===   =====//" << endl;
+
+
+}
 
 void optionOne() { //Play The Map Level Game
     randomMapChooser();
@@ -548,6 +557,7 @@ void optionOne() { //Play The Map Level Game
             break;
         }
     }
+    congrats();
 }
 
 void optionTwo() {  //Build Your Own Maze
@@ -570,6 +580,7 @@ save_changes_wrong_letter:
         Sleep(2000);
         system("cls");
         movement(userMap, n, m);
+        congrats();
     }
     else if ((choice == 'n') || (choice == 'N')) {
     wrong_input_for_N: cout << "Do you want to try again?Y/N\n";

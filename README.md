@@ -27,9 +27,4 @@
 
 ---
 
-<!-- Link to Presentation -->
-[Presentation](https://codingburgas-my.sharepoint.com/:w:/r/personal/vvdimitrov19_codingburgas_bg/_layouts/15/Doc.aspx?sourcedoc=%7BDF7A8439-470A-4228-9161-9EC771D3303E%7D&file=7theb0ts_maze_documentation.docx&action=default&mobileredirect=true)
-
----
-
 
